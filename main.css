@@ -1,0 +1,1373 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    height: 5em;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; /* Adjust padding */
+    position: fixed;
+    z-index: 100; /* Ensure header stays above content */
+}
+
+/* Logo */
+.logo {
+    color: rgb(130, 0, 0);
+    font-family: Trebuchet MS;
+    font-size: 1.8rem;
+    position: relative;
+    left: 20px; /* Moves 20px right */
+    top: 5px;
+}
+.bar{
+    color: rgb(85, 85, 85);
+    font-weight: bolder;
+    font-size:xx-large;
+    position: absolute;
+    top: 25px;
+    left: 220px;
+}
+.designation {
+    color: white;
+    font-family: Trebuchet MS;
+    font-size: 1.1rem;
+    /* font-weight: bold; */
+    position: absolute;
+    top: 38px;
+    left: 235px;
+}
+
+/* Navigation (Visible by Default on Large Screens) */
+.container {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Adds spacing between links */
+}
+
+/* Navigation Links */
+.nav {
+    color: white;
+    text-decoration: none;
+    font-family: Trebuchet MS;
+    position: relative;
+    padding-bottom: 5px;
+    right: 30px;
+    top: 15px;
+}
+
+/* Underline Effect */
+.nav::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(130, 0, 0);
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav:hover::after {
+    transform: scaleX(1);
+}
+
+/* Sidebar Icon (Initially Hidden) */
+.sidebaricon {
+    display: none;
+    background-color: black;
+    border: none;
+    color: rgb(130, 0, 0);
+    font-size: 24px;
+    position: absolute;
+    top: 25px;
+    left: 15px; /* Move Sidebar Icon to Left */
+    cursor: pointer;
+    z-index: 1001; /* Make sure sidebar icon stays on top */
+}
+
+/* Hide Normal Navbar on Small Screens */
+@media screen and (max-width: 900px) {
+    /* Hide normal navbar */
+    .container {
+        position: fixed; /* Changed from absolute to fixed */
+        top: 0;
+        left: -300px; /* Initially Hidden - increased width */
+        height: 100%;
+        width: 260px; /* Increased width from 200px */
+        background-color: black;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 70px; /* Increased top padding */
+        transition: left 0.2s ease-in-out;
+        gap: 30px; /* Increased gap */
+        z-index: 9999; /* Very high z-index to stay above everything */
+        box-shadow: 3px 0 10px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+        padding-left: 50px;
+    }
+
+    /* Increase font size for navigation links */
+    .container .nav {
+        font-size: 1.5rem; /* Increased font size */
+        padding: 12px 0; /* Added more padding for touch */
+        width: 80%; /* Make links wider */
+        text-align: center;
+    }
+
+    /* Show Sidebar */
+    .container.active {
+        left: 0;
+    }
+
+    /* Show Sidebar Icon */
+    .sidebaricon {
+        display: block;
+        position: absolute;
+        left: 20px;
+        font-size: 25px; /* Increased from 15px */
+        z-index: 10000; /* Ensure it's above the sidebar */
+        top: 15px;
+    }
+
+    /* When sidebar is active, move icon inside sidebar */
+    .container.active + .sidebaricon {
+        left: 220px; /* Adjusted for wider sidebar */
+        transition-delay: 0.1s;
+        /* Move to right inside sidebar */
+    }
+
+    /* Center Logo */
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-decoration: rgb(85, 85, 85) underline;
+        text-underline-offset: 8px;
+    }
+    .bar{
+        visibility: hidden;
+    }
+    .designation {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 48px; /* Adjust position under the logo */
+        text-align: center;
+    }
+}
+
+.main{
+    background-color:  #161618;
+    width: 100%;
+    height: 3300px;
+}
+/* Active Section Highlight */
+.nav.active-nav {
+    color: rgb(130, 0, 0);
+}
+
+.about {
+    color: white;
+    display: flex;
+    position: absolute;
+    top: 80px;
+    align-items: center; /* Vertically center the content */
+    gap: 20px; /* Space between text and image */
+    width: 100%; /* Take full width */
+    height: 470px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.about_para {
+    display: flex;
+    position: absolute;
+    flex-direction: column; /* Stack heading above paragraph */
+    left:160px;
+    width: 750px;
+    top: 130px;
+}
+.welcome{
+    color: rgba(255, 255, 255, 0.893);
+    font-size: xx-large;
+}
+
+.intro{
+    color: rgb(160, 0, 0);
+    position: absolute;
+    top: 0px;
+    left: 105px;
+    font-size: xx-large;
+}
+.info{
+    color:darkgray;
+    position: absolute;
+    top: 50px;
+    line-height: 1.5;
+}
+
+.profile {
+    position: absolute;
+    height: 300px;
+    right: 90px;
+    top: 80px;
+    border: solid 2px rgb(130, 0, 0) ;
+    border-radius: 10%;
+}
+.ic{    
+    color: rgba(255, 255, 255, 0.893);
+    margin-right: 25px;
+}
+.contact{
+    position: absolute;
+    top: 150px;
+    left: 100px;
+}
+
+.resume_container{
+    position: absolute;
+    height: 35px;
+    width: 90px;
+    background-color: rgb(130, 0, 0);
+    color: rgba(255, 255, 255);
+    border-radius: 1rem;
+    text-align:center;
+    padding-top: 8px;
+    text-decoration:none;
+    top: 0px;
+    left: 350px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 900px) {
+    
+    .about {
+        color: white;
+        display: flex;
+        position: absolute;
+        top: 80px;
+        align-items: center; /* Vertically center the content */
+        gap: 20px; /* Space between text and image */
+        width: 800px; /* Take full width */
+        height: 4700px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        background-color: #161618;
+        font-size: x-large;
+        
+    }
+    .about_para {
+        display: flex;
+        position: absolute;
+        flex-direction: column; /* Stack heading above paragraph */
+        left:120px;
+        width: 400px;
+        top: 530px;
+    }
+    .welcome{
+        color: rgba(255, 255, 255, 0.893);
+        width: 200px;
+        
+    }
+    
+    .intro{
+        color: rgb(160, 0, 0);
+        position: absolute;
+        top: 0px;
+        left: 120px;
+
+    }
+    .info{
+        color:darkgray;
+        position: absolute;
+        top: 70px;
+        line-height: 1.5;
+        width: 550px;
+        text-align: justify;
+    }
+    
+    .profile {
+        position: absolute;
+        height: 400px;
+        right: 250px;
+        top: 50px;
+        
+    }
+    .ic{    
+        color: rgba(255, 255, 255, 0.893);
+        margin-right: 25px;
+        
+    }
+    .contact{
+        position: absolute;
+        top: 350px;
+        left: 50px;
+    }
+    
+    .resume_container{
+        position: absolute;
+        height: 50px;
+        width: 110px;
+        background-color: rgb(130, 0, 0);
+        color: rgba(255, 255, 255);
+        border-radius: 1rem;
+        text-align:center;
+        padding-top: 9px;
+        text-decoration:none;
+        top: 0px;
+        left: 330px;
+        font-weight: bold;
+    }  
+}
+
+
+
+/* Experience */
+
+.experience{
+    color: white ;
+    position: absolute;
+    top: 600px;
+    height:350px;
+    width: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.exp_heading{
+    position: absolute;
+    left: 200px;
+    text-decoration:rgb(130, 0, 0) underline;
+    text-underline-offset: 6px;
+    color: white;
+}
+
+.exp_des{
+    position: absolute;
+    top: 60px;
+    left: 200px;
+}
+.bar2{
+    position: absolute;
+    top: 50px;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: grey;
+    left: 395px;
+    }
+
+.company_1{
+    color: rgb(160, 0, 0);
+    position: absolute;
+    top: 58px;
+    left: 420px;
+    font-size:x-large;
+    font-weight: bold;
+}
+.duration{
+    color: white;
+    position: absolute;
+    top: 70px;
+    right: 150px;
+}
+
+.exp_points{
+    position: absolute;
+    left: 250px;
+    top: 120px;
+    line-height: 1.75;
+    color: darkgrey;
+    width: 800px;
+}
+@media screen and (max-width: 900px) {
+    .experience{
+        color: white ;
+        position: absolute;
+        top: 1200px;
+        height:350px;
+        width: 750px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: larger;
+    }
+    .exp_heading{
+        position: absolute;
+        left: 120px;
+    }
+    .exp_des{
+        left: 120px;
+    }
+    .bar2{
+        left: 350px;
+    }
+    .company_1{
+        left: 370px;
+        top: 60px;
+    }
+    .exp_points{
+        top: 110px;
+        left: 170px;
+        width: 500px;
+    }
+    .duration{
+        right: 0px;
+    }
+
+}
+
+
+
+
+
+/* Education */
+
+.education{
+    color: white ;
+    position: absolute;
+    top: 1000px;
+    height:420px;
+    width: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:large ;
+}
+.edu_head{
+    color: white;
+    text-decoration:rgb(130, 0, 0) underline;
+    text-underline-offset: 6px;    
+    position: absolute;
+    top: 20px;
+    left: 200px;
+
+}
+.btech{
+    color: white;
+    position: absolute;
+    top: 80px;
+    left: 250px;
+    font-size: larger;
+}
+.bar3{
+    position: absolute;
+    left: 350px;
+    top: 70px;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: grey;
+}
+.branch{
+    position: absolute;
+    top: 80px;
+    left: 370px;
+    color: rgb(160, 0, 0);
+}
+.btech_info{
+    position: absolute;
+    left: 50px;
+    width: 700px;
+    top: 35px;
+    line-height: 1.5;
+    color: darkgray;
+}
+
+.inter{
+    color: white;
+    position: absolute;
+    top: 205px;
+    left: 250px;
+    font-size: larger;
+}
+
+.inter_info{
+    position: absolute;
+    left: 50px;
+    width: 700px;
+    top: 35px;
+    line-height: 1.5;
+    color: darkgray;
+}
+.bar4{
+    position: absolute;
+    left: 375px;
+    top: 195px;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: grey;
+}
+.mpc{
+    position: absolute;
+    top: 205px;
+    left: 395px;
+    color: rgb(160, 0, 0);
+}
+
+.school{
+    color: white;
+    position: absolute;
+    top: 320px;
+    left: 250px;
+    font-size: larger;
+}
+
+.school_info{
+    position: absolute;
+    left: 50px;
+    width: 700px;
+    top: 35px;
+    line-height: 1.5;
+    color: darkgray;
+}
+.bar5{
+    position: absolute;
+    left: 295px;
+    top: 310px;
+    font-size: xx-large;
+    font-weight: bolder;
+    color: grey;
+}
+.ssc{
+    position: absolute;
+    top: 320px;
+    left: 315px;
+    color: rgb(160, 0, 0);
+}
+
+.clg_duration{
+    position: absolute;
+    right: 100px;
+    top: 80px;
+}
+.inter_duration{
+    position: absolute;
+    right: 100px;
+    top: 205px;
+}
+.scl_duration{
+    position: absolute;
+    right: 100px;
+    top: 320px;
+}
+@media screen and (max-width: 900px) {
+    .education{
+        position: absolute;
+        left: 0px;
+        top: 1850px;
+        width: 650px;
+        font-size: larger;
+    }
+
+    .edu_head{
+        left: 120px;
+    }
+    .edu{
+        position: absolute;
+        left: 0px;
+        width: 500px;
+        height: 500px;
+    }
+    .btech{
+        left: 150px;
+    }
+    .sp{
+        width: 500px;
+    }
+    .btech_info{
+        width: 500px;
+    }
+    .inter_info{
+        width: 500px;
+    }
+    .school_info{
+        width: 500px;
+    }
+    .bar3{
+        position: absolute;
+        left: 255px;
+    }
+    .branch{
+        position: absolute;
+        left: 274px;
+    }
+    .inter{
+        left: 150px;
+        top: 230px;
+    }
+    .bar4{
+        position: absolute;
+        left: 285px;
+        top: 223px;
+
+    }
+    .mpc{
+        position: absolute;
+        left: 305px;
+        top: 230px;
+
+    }
+
+    .school{
+        left: 150px;
+        top: 350px;
+    }
+    .bar5{
+        position: absolute;
+        left: 199px;
+        top: 340px;
+
+    }
+    .ssc{
+        position: absolute;
+        left: 219px;
+        top: 350px;
+
+    }
+
+    .clg_duration{
+        position: absolute;
+        right: 0px;
+        top: 80px;
+    }
+    .inter_duration{
+        position: absolute;
+        right: 0px;
+        top: 230px;
+    }
+    .scl_duration{
+        position: absolute;
+        right: 0px;
+        top: 355px;
+    }
+}
+
+
+/* Skills */
+
+
+.skills{
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    top: 1550px;
+    font-size: larger;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+.skills_head{
+    
+    color: white;
+    text-decoration:rgb(130, 0, 0) underline;
+    text-underline-offset: 6px;    
+    position: absolute;
+    top: 20px;
+    left: 200px;
+
+}
+
+.skill_points{
+    color: white;
+    position: absolute;
+    left: 250px;
+    top: 80px;
+    font-size: larger;
+    height: 300px;
+    width: 1000px;
+}
+
+#pycon{
+    position: absolute;
+    top: 60px;
+    left: 550px;
+}
+
+.programming{
+    height: 100px;
+}
+#sqlcon{
+    position: absolute;
+    top: 60px;
+    left: 700px;
+}
+#htmlcon{
+    position: absolute;
+    top: 60px;
+    left: 850px;
+}
+#csscon{
+    position: absolute;
+    top: 60px;
+    left: 1000px;
+}
+#jscon{
+    position: absolute;
+    top: 60px;
+    left: 1150px;
+}
+
+#pyhead{
+    position: absolute;
+    top: 145px;
+    left: 560px;
+    color: darkgray;
+}
+#sqlhead{
+    position: absolute;
+    top: 145px;
+    left: 720px;
+    color: darkgray;
+}
+#htmlhead{
+    position: absolute;
+    top: 145px;
+    left: 870px;
+    color: darkgray;
+}
+#csshead{
+    position: absolute;
+    top: 145px;
+    left: 1030px;
+    color: darkgray;
+}
+
+#jshead{
+    position: absolute;
+    top: 145px;
+    left: 1170px;
+    color: darkgray;
+}
+
+
+.frameworks{
+    position: absolute;
+    top: 150px;
+    width: 1000px;
+    display: flex;
+    font-size: larger;
+}
+.frames{
+    position: absolute;
+    top: 5px;
+    color: darkgray;
+}
+
+.tools{
+    position: absolute;
+    top: 200px;
+    width: 1000px;
+    display: flex;
+    font-size: larger;
+}
+.tool{
+    position: absolute;
+    top: 5px;
+    color: darkgray;
+}
+
+.certificates{
+    position: absolute;
+    top: 290px;
+    width: 1000px;
+
+}
+.cert{
+    position: absolute;
+    left: 50px;
+    top: 35px;
+    color: darkgray;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 900px) {
+    .skills{
+        top: 2500px;
+    }
+    .skills_head{
+        left: 120px;
+    }
+    .programming{
+        position: absolute;
+        left: 180px;
+    }
+    .skill_points{
+        position: absolute;
+        left: 0px;
+        width: 100%;
+    }
+    
+#pycon{
+    position: absolute;
+    top: 130px;
+    left: 190px;
+}
+
+
+#sqlcon{
+    position: absolute;
+    top: 140px;
+    left: 350px;
+}
+#htmlcon{
+    position: absolute;
+    top: 130px;
+    left: 500px;
+}
+#csscon{
+    position: absolute;
+    top: 280px;
+    left: 250px;
+}
+#jscon{
+    position: absolute;
+    top: 280px;
+    left: 430px;
+}
+
+#pyhead{
+    top: 220px;
+    left: 200px;
+}
+#sqlhead{
+    position: absolute;
+    top: 220px;
+    left: 370px;
+}
+
+#htmlhead{
+    position: absolute;
+    top: 220px;
+    left: 520px;
+}
+#csshead{
+    position: absolute;
+    top: 370px;
+    left: 280px;
+}
+
+#jshead{
+    position: absolute;
+    top: 370px;
+    left: 430px;
+}
+
+
+.frameworks{
+    display: none;
+}
+.frames{
+    display: none;
+}
+
+.tools{
+    display: none;
+}
+.tool{
+display: none;
+}
+
+.certificates{
+    position: absolute;
+    top: 400px;
+    left: 180px;
+    width: 500px;
+
+}
+.cert{
+    position: absolute;
+    left: 50px;
+    top: 35px;
+    color: darkgray;
+    line-height: 1.5;
+}
+}
+
+
+/* Projects */
+.projects{
+    height: 600px;
+    width: 100%;
+    position: absolute;
+    top: 2200px;
+    font-size: larger;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+.projects_head{
+    color: white;
+    text-decoration:rgb(130, 0, 0) underline;
+    text-underline-offset: 6px;    
+    position: absolute;
+    top: 20px;
+    left: 200px;    
+}
+.ai_interviewer{
+    position: absolute;
+    top: 100px;
+    height: 200px;
+    width: 100%;
+    color: white;
+}
+.pro1_head{
+    position: absolute;
+    left: 200px;
+    font-size: larger;
+}
+.pro1_info{
+    color: darkgray;
+    width: 500px;
+    position: absolute;
+    left: 200px;
+    top: 50px;
+    text-align: justify;
+}
+.ai_interviewer_image{
+    width: 350px;
+    position: absolute;
+    right: 150px;
+    top: 0px;
+}
+
+
+@media screen and (max-width: 900px) {
+    .projects{
+        top: 3280px;
+
+    }
+    .projects_head{
+        left: 120px;    
+    }
+    .ai_interviewer{
+        top: 80px;
+        width: 70vh;
+    }
+    .pro1_head{
+        position: absolute;
+        left: 150px;
+        width: 500px;
+        font-size: larger;
+    }
+    .pro1_info{
+        left: 150px;
+        top: 40px;
+    }
+    .ai_interviewer_image{
+        top: 150px;
+        left: 230px;
+    }
+    
+}
+
+
+.resume_analyzer{
+    position: absolute;
+    top: 400px;
+    height: 200px;
+    width: 100%;
+    color: white;
+}
+.pro2_head{
+    position: absolute;
+    right: 150px;
+    font-size: larger;
+}
+.pro2_info{
+    color: darkgray;
+    width: 500px;
+    position: absolute;
+    right: 150px;
+    top: 50px;
+    text-align: justify;
+}
+.resume_analyzer_image{
+    width: 350px;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+}
+
+
+@media screen and (max-width: 900px) {
+    
+    .resume_analyzer{
+        top: 500px;
+        width: 100%;
+    }
+    .pro2_head{
+        position: absolute;
+        left: 150px;
+        font-size: larger;
+        width: 500px;
+    }
+    .pro2_info{
+        left: 150px;
+        top: 40px;
+    }
+    .resume_analyzer_image{
+        top: 150px;
+        left: 230px;
+    }
+    
+}
+
+
+
+.research_tool{
+    position: absolute;
+    top: 700px;
+    height: 200px;
+    width: 100%;
+    color: white;
+}
+.pro3_head{
+    position: absolute;
+    left: 200px;
+    font-size: larger;
+}
+.pro3_info{
+    color: darkgray;
+    width: 500px;
+    position: absolute;
+    left: 200px;
+    top: 50px;
+    text-align: justify;
+}
+.research_tool_image{
+    width: 350px;
+    position: absolute;
+    right: 150px;
+    top: 0px;
+}
+
+
+@media screen and (max-width: 900px) {
+    
+    .research_tool{
+        top: 900px;
+        width: 100%;
+    }
+    .pro3_head{
+        position: absolute;
+        left: 150px;
+        font-size: larger;
+        width: 500px;
+    }
+    .pro3_info{
+        left: 150px;
+        top: 40px;
+    }
+    .research_tool_image{
+        top: 150px;
+        left: 230px;
+    }
+    
+}
+
+/* Blogs */
+.blogs{
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 3150px;
+    color: white;
+}
+.blogs_head{
+    color: white;
+    text-decoration:rgb(130, 0, 0) underline;
+    text-underline-offset: 6px;    
+    position: absolute;
+    top: 20px;
+    left: 200px; 
+}
+.blog_info{
+    position: absolute;
+    top: 70px;
+    font-size: x-large;
+    color: darkgray;
+    left: 250px;
+}
+
+@media screen and (max-width: 900px) {
+
+    .blogs{
+        top: 4600px;
+
+    }
+    .blogs_head{
+        left: 120px;
+    }
+    .blog_info{
+        left: 170px;
+    }
+}
+
+
+/* Footer */
+
+.footer{
+    position: absolute;
+    background-color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    top: 3300px;
+    color: white;
+    height: 230px;
+    width: 100%;
+}
+#mailcon{
+    color: rgb(140, 0, 0);
+    position: relative;
+    left: 30px;
+    top: 5px;
+    font-size: x-large;
+}
+#mailid{
+    color: white;
+    position:relative;
+    left: 65px;
+    font-size: larger;
+    top: -15px;
+    width: 100vh;
+}
+#phonecon{
+    color: rgb(140, 0, 0);
+    position: relative;
+    left: 345px;
+    top: -35px;
+    font-size: x-large;
+}
+#phoneid{
+    color: white;
+    position:relative;
+    left: 380px;
+    font-size: larger;
+    top: -55px;
+    width: 100vh;
+}
+
+#locicon{
+    color: rgb(140, 0, 0);
+    position: relative;
+    left: 600px;
+    top: -75px;
+    font-size: x-large;
+}
+#location{
+    color: white;
+    width: 100vh;
+    position:relative;
+    left: 630px;
+    font-size: larger;
+    top: -96px;
+}
+#licon{
+    color: rgb(140, 0, 0);
+    position: relative;
+    left: 790px;
+    top: -115px;
+    font-size: x-large;
+}
+#liid{
+    color: white;
+    position:relative;
+    left: 795px;
+    font-size: large;
+    top: -117px;
+    text-decoration: none;
+}
+
+#gitcon{
+    color: rgb(140, 0, 0);
+    position: relative;
+    left: 890px;
+    top: -115px;
+    font-size: x-large;
+}
+#gitid{
+    color: white;
+    position:relative;
+    left: 895px;
+    font-size: large;
+    top: -117px;
+    text-decoration: none;
+}
+
+.thank{
+    color: rgb(140, 0, 0);
+    position: relative;
+    top: -65px;
+    left: 500px;
+    width: 100vh;
+}
+.help{
+    color: white;
+    position: relative;
+    top: -60px;
+    left: 478px;
+    width: 100vh;
+}
+#copyrighticon{
+    color: rgb(140, 0, 0);
+    position: relative;
+    top: -12px;
+    left: 495px;
+}
+.copyrights{
+    color: white;
+    position: relative;
+    top: -30px;
+    left: 520px;
+    font-size: larger;
+    width: 100vh;
+}
+@media screen and (max-width: 900px) {
+
+.footer{
+    position: absolute;
+    top: 4750px;
+    width: 800px;
+    font-size: larger;
+    height: 300px;
+}
+#mailid{
+    width: 10vh;
+}
+#mailcon{
+    top: 10px;
+}
+#phonecon{
+    top: -33px;
+}
+#phoneid{
+    width: 10vh;
+    top: -58px;
+}
+#locicon{
+    top: -80px;
+}
+#location{
+    top: -105px;
+    width: 10vh;
+}
+
+#licon{
+    left: 183px;
+    top:-68px;
+}
+#liid{
+    left: 190px;
+    top:-70px;
+    width: 10vh;
+}
+
+#gitcon{
+    left: 290px;
+    top:-68px;
+}
+#gitid{
+    left: 300px;
+    top:-70px;
+    width: 10vh;
+}
+
+.thank{
+    left: 35%;
+    top: -25px;
+    width: 50vh;
+}
+.help{
+    left: 32%;
+    top: -15px;
+    width: 50vh;
+}
+
+#copyrighticon{
+    top: 27px;
+    left: 33%;
+}
+.copyrights{
+    top: 5px;
+    left:295px;
+    width: 10vh;
+
+}
+}
+
+@media screen and (min-width: 1400px) {
+    .footer{
+        position: absolute;
+        top: 3300px;
+        width: 100%;
+        font-size: larger;
+        height: 300px;
+    }
+    #mailid{
+        left: 80px;
+        top: -10px;
+        width: 10vh;
+    }
+    #mailcon{
+        left: 45px;
+        top: 15px;
+    }
+    #phonecon{
+        top: -30px;
+        left: 438px;
+    }
+    #phoneid{
+        left: 470px;
+        width: 10vh;
+        top: -55px;
+    }
+    
+    #locicon{
+        top: -75px;
+
+        left: 770px;
+    }
+    #location{
+        top: -100px;
+        left: 800px;
+        width: 10vh;
+    }
+    
+    #licon{
+        left: 1070px;
+        top:-125px;
+    }
+    #liid{
+        left: 1080px;
+        top:-128px;
+        width: 10vh;
+    }
+    
+    #gitcon{
+        left: 1240px;
+        top:-127px;
+    }
+    #gitid{
+        left: 1250px;
+        top:-130px;
+        width: 10vh;
+    }
+    
+    .thank{
+        left: 45%;
+        top: -45px;
+        width: 50vh;
+    }
+    .help{
+        left: 43.5%;
+        top: -25px;
+        width: 60vh;
+    }
+    
+    #copyrighticon{
+        top: 27px;
+        left: 44%;
+    }
+    .copyrights{
+        top: 5px;
+        left:46%;
+        width: 10vh;
+    
+    }
+}
