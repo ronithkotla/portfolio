@@ -952,7 +952,7 @@ display: none;
     }
     .ai_interviewer_image{
         top: 150px;
-        left: 230px;
+        left: 150px;
         width: 500px;
     }
     
@@ -1005,7 +1005,7 @@ display: none;
     }
     .resume_analyzer_image{
         top: 150px;
-        left: 230px;
+        left: 150px;
         width:500px;
     }
     
@@ -1059,7 +1059,7 @@ display: none;
     }
     .research_tool_image{
         top: 150px;
-        left: 230px;
+        left: 150px;
         width:500px;
     }
     
